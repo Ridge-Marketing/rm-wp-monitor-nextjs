@@ -17,7 +17,7 @@ const BasicCard = (props) =>{
     let dateStrings  = [];
     pages.forEach(e => {
         // console.log(e.last_updated);
-        dateStrings.push(e.last_updated);
+        dateStrings.push(e.last_updated); 
     });
     let lastUpdated = compareDates(dateStrings);
     let optionsDay = { year: 'numeric', month: 'long', day: 'numeric'  };
@@ -83,6 +83,11 @@ const BasicCard = (props) =>{
                                         <div className="pl-5 pt-5">
                                             <span className="block text-sm">Editor:</span>
                                             <p className="mb-4 font-bold">{page.editor}</p>
+                                        </div>
+
+                                        <div className="pl-5 pt-5">
+                                            <span className="block text-sm">Post Type:</span>
+                                            <p className="mb-4 font-bold">{page.post_type}</p>
                                         </div>
 
                                         <div className="pl-5 pt-5">
