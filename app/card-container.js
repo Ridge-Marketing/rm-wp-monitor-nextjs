@@ -22,7 +22,6 @@ export default async function CardContainer(){
 
     let groupedSites;
     groupSites(Sites);
- 
 
     // const router = useRouter();
 
