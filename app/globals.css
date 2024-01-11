@@ -46,15 +46,19 @@ main{
 } */
 .production-container .production{
   color:#A9CF38;
+  fill: #a9cf38;
 }
 .staging-container .staging{
   color:#24B6BF;
+  fill:#24B6BF;
 }
 .development-container .development{
   color:#000;
+  fill:#000;
 }
 .local-container .local{
   color:#6f6f6f;
+  fill:#6f6f6f;
 }
 
 
