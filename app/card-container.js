@@ -4,10 +4,6 @@ import BasicCard from "./components/basic-card";
 import supabaseServer from "./supabaseServer";
 import RMNav from "./components/nav";
 
-// const supabase = createServerComponentClient({ cookies });
-
-import { useRouter } from 'next/navigation'
-
 export default async function CardContainer(){
     const { data: Sites } = await supabaseServer()
     .from('Sites')
@@ -47,7 +43,6 @@ export default async function CardContainer(){
     .from('Migrations')
     .select('*')
 
-    //prod, stage, dev
     let migrations = Migrations;
     let prod = ''; let stage = ''; let dev = '';
 
@@ -58,7 +53,6 @@ export default async function CardContainer(){
                 <section key={Category.website_group} className="mb-10 md:mb-16 lg:mb-20 bg-white px-8 pt-1">
                     <h2 className={`font-semibold uppercase text-4xl mt-6 pb-8`}>{Category.website_group.replace(/[^a-zA-Z0-9 ]/g, ' ')}</h2>
                     {migrations.map( (migration) => {
-                            // console.log(migration.id, migration.siteType, migration.website_group);
                             if( (Category.website_group.replace(/[^a-zA-Z0-9 ]/g, ' ')) == (migration.website_group.replace(/[^a-zA-Z0-9 ]/g, ' ')) ){
                                 if(migration.siteType == 'prod'){
                                     prod = migration;
@@ -73,10 +67,10 @@ export default async function CardContainer(){
                         })
                     }
                     <div className="flex justify-between">
-                        <BasicCard siteType={'PRODUCTION'}  pages={Category.pages.prod}     migration={prod}/>
-                        <BasicCard siteType={'STAGING'}     pages={Category.pages.stage}    migration={stage}/>
-                        <BasicCard siteType={'DEVELOPMENT'} pages={Category.pages.dev}      migration={dev}/>
-                        <BasicCard siteType={'LOCAL'}       pages={Category.pages.local}    migration={''}/>
+                        <BasicCard siteType={'PRODUCTION'}   pages={Category.pages.prod}   migration={prod}/>
+                        <BasicCard siteType={'STAGING'}      pages={Category.pages.stage}  migration={stage}/>
+                        <BasicCard siteType={'DEVELOPMENT'}  pages={Category.pages.dev}    migration={dev}/>
+                        <BasicCard siteType={'LOCAL'}        pages={Category.pages.local}  migration={''}/>
                     </div>
                 </section>
             ))}
