@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import HostUrl from "./host-url";
 import ExpandList from "../templateParts/expandList";
 import LastUpdated from "../templateParts/lastUpdated";

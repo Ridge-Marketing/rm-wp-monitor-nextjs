@@ -9,7 +9,7 @@ const Migration = (props) => {
   return (
     <section className="pb-1 mb-6 border-b-2 border-solid border-[#F3F9F9]">
       <h3 className="leading-6 basic-sans text-xl lg:pr-4 xl:w-[70%] pb-4">
-        Ridge Last Modified Content:
+        Last Pushes:
       </h3>
       <span className="leading-6 basic-sans text-lg lg:pr-4 xl:w-[70%] pb-4">
         Database:
