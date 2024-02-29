@@ -19,7 +19,7 @@ const Migration = (props) => {
           [],
           optionsDay
         )}
-        <br />
+        <br/>
         {new Date(migration.database_Update_Date).toLocaleTimeString(
           [],
           optionsTime
@@ -34,7 +34,7 @@ const Migration = (props) => {
           [],
           optionsDay
         )}
-        <br />
+        <br/>
         {new Date(migration.fileSystem_Update_Date).toLocaleTimeString(
           [],
           optionsTime

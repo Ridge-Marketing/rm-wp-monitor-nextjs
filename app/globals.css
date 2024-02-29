@@ -7,60 +7,83 @@
 html, .basic-sans{
   font-family: Basic Sans, "basic-sans";
 }
-h1, h2, h3, ol li span{
+h1, h2, h3, ol li span, select{
   font-family: Stratos, "stratos";
 }
-main{
+.main{
   max-width:calc(100vw - 25px);
   margin-left: auto;
   margin-right: auto;
   display:block;
 }
 @media screen and (min-width:768px) {
-  main{
+  .main{
       max-width:600px;
   }
 }
 @media screen and (min-width:1024px){
-  main{
+  .main{
       max-width:900px
   }
 }
 @media screen and (min-width:1280px){
-  main{
+  .main{
       max-width:1130px;
   }
 }
 
-/* .production-container .flex{
-  background:#A9CF38;
-}
-.staging-container .flex{
-  background:#24B6BF;
-}
-.development-container .flex{
-  background:#000;
-}
-.local-container .flex{
-  background:#6f6f6f;
-} */
-.production-container .production{
-  color:#A9CF38;
-  fill: #a9cf38;
-}
-.staging-container .staging{
-  color:#24B6BF;
-  fill:#24B6BF;
-}
-.development-container .development{
-  color:#000;
-  fill:#000;
-}
-.local-container .local{
-  color:#6f6f6f;
-  fill:#6f6f6f;
+.custom-select {
+  min-width: 200px;
+  position: relative;
 }
 
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.custom-select::before,
+.custom-select::after {
+  --size: 0.3rem;
+  content: "";
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
+  background: black;
+  z-index: 1;
+}
+
+.custom-select::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid white;
+  top: 40%;
+}
+
+.custom-select::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid white;
+  top: 55%;
+}
+
+.gradient-overlay{
+  width: 20%;
+  display: block;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: -moz-linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.47805059523809523) 40%, rgba(0,0,0,0.47805059523809523) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.47805059523809523) 40%, rgba(0,0,0,0.47805059523809523) 100%);
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.47805059523809523) 40%, rgba(0,0,0,0.47805059523809523) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#000000",GradientType=1);}
+
+.info-container{
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.15);
+}
 
 /*
  * The Typekit service used to deliver this font or fonts for use on websites
@@ -152,7 +175,3 @@ font-family:"stratos";
 src:url("https://use.typekit.net/af/b66872/00000000000000007735e00e/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff2"),url("https://use.typekit.net/af/b66872/00000000000000007735e00e/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff"),url("https://use.typekit.net/af/b66872/00000000000000007735e00e/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("opentype");
 font-display:auto;font-style:normal;font-weight:600;font-stretch:normal;
 }
-
-.tk-basic-sans { font-family: "basic-sans",sans-serif; }
-.tk-stratos-lights { font-family: "stratos-lights",sans-serif; }
-.tk-stratos { font-family: "stratos",sans-serif; }

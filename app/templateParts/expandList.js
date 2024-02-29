@@ -10,8 +10,8 @@ const ExpandList = (props) => {
       <summary>Expand List of Pages</summary>
       <div className="bg-white text-black pt-5">
         <ol className="mb-4">
-          {pages.map((page) => (
-            <li key={page.page_name + page.url} className="mb-4">
+          {pages.map((page, index) => (
+            <li key={index} className="mb-4">
               <details className="w-full cursor-pointer">
                 <summary className="">
                   <span className="font-bold">{page.page_name}</span>
