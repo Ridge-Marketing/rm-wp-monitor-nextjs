@@ -7,14 +7,12 @@
 html, .basic-sans{
   font-family: Basic Sans, "basic-sans";
 }
-h1, h2, h3, ol li span, select{
+h1, h2, h3, ol li span, select, button{
   font-family: Stratos, "stratos";
 }
 .main{
   max-width:calc(100vw - 25px);
-  margin-left: auto;
-  margin-right: auto;
-  display:block;
+  @apply block ml-auto mr-auto;
 }
 @media screen and (min-width:768px) {
   .main{
@@ -38,10 +36,12 @@ h1, h2, h3, ol li span, select{
 }
 
 select {
-  appearance: none;
+  @apply appearance-none w-full cursor-pointer;
   -webkit-appearance: none;
-  width: 100%;
-  cursor: pointer;
+}
+
+button{
+  @apply py-2 px-4 bg-[#A9CF38];
 }
 
 .custom-select::before,
@@ -70,12 +70,7 @@ select {
 }
 
 .gradient-overlay{
-  width: 20%;
-  display: block;
-  height: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
+  @apply w-1/5 block h-full absolute right-0 top-0;
   background: -moz-linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.47805059523809523) 40%, rgba(0,0,0,0.47805059523809523) 100%);
   background: -webkit-linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.47805059523809523) 40%, rgba(0,0,0,0.47805059523809523) 100%);
   background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.47805059523809523) 40%, rgba(0,0,0,0.47805059523809523) 100%);
@@ -83,6 +78,15 @@ select {
 
 .info-container{
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.15);
+}
+.info-container li *, .info-overview *{
+  @apply w-1/4;
+}
+.info-container li{
+  @apply h-1/4 border-b border-gray-100 p-4 last-of-type:border-0;
+}
+.info-container h4{
+  @apply font-bold text-[#24B6BF] text-base;
 }
 
 /*

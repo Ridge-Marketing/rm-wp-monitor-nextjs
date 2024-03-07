@@ -10,6 +10,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`bg-white`}>
         {children}
+        <div className='bg-black h-5 w-full'></div>
       </body>
     </html>
   )

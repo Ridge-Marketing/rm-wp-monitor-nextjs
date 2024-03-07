@@ -40,7 +40,8 @@ const RMcontainer = (props) => {
     return(
         <>
              <RMNav websites={websites} loaded={websites.length} activeWebsite={activeWebsite} handleChange={handleChange} />
-             <WebsiteData activeWebsiteData={activeWebsiteData} />
+             <WebsiteData activeWebsiteData={activeWebsiteData} prod={prod} stage={stage} dev={dev} />
+             {/* <pre>{JSON.stringify( stage, null, 4)}</pre> */}
         </>
     )
 }
