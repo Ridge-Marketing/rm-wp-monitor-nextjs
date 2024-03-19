@@ -1,9 +1,6 @@
 import Image from 'next/image'
 import RMLogo from './components/logo'
 
-// v1
-// import CardContainer from './card-container'
-
 import MainContent from './main-content'
 
 export default function Home() {
@@ -11,9 +8,10 @@ export default function Home() {
   return (
     <main className={`pt-14 relative`}>
       <div className='main'>
-        <RMLogo/>
-        <h1 className={`mt-14 uppercase text-5xl font-bold md:text-6xl text-[#A9CF38]`}>Currently Active<br/>Wordpress Sites</h1>
-        {/* <CardContainer/> */}  
+        <div className='flex justify-center max-w-full'>
+          <RMLogo/>
+        </div>
+        <h1 className={`my-14 uppercase text-5xl font-bold md:text-6xl text-[#A9CF38] text-center`}>Currently Active Wordpress Sites</h1>
       </div>
       <MainContent/>
     </main>

@@ -39,16 +39,19 @@ export default async function MainContent() {
     groupedSites.sort((a, b) => a.website_group.localeCompare(b.website_group));
   }
 
+
   const { data: Migrations } = await supabaseServer()
     .from("Migrations")
     .select("*");
-
   let migrations = Migrations;
 
-    return (
-        <>
-            <RMcontainer websites={groupedSites} migrations={migrations} />
-            {/* <RMNav websites={groupedSites} loaded={groupedSites.length} /> */}
-        </>
-    )
+  let { data: EnvURLs } = await supabaseServer()
+  .from('EnvURLs')
+  .select('*')
+  let environments = EnvURLs;
+
+
+  return (
+      <RMcontainer websites={groupedSites} migrations={migrations} environments={environments}  />
+  )
 }

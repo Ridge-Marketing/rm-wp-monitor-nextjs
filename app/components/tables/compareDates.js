@@ -25,8 +25,8 @@ const CompareDates = (props) =>{
     return(
         <time>
             {new Date(lastUpdated).toLocaleDateString([], optionsDay)}
-            <span className="px-2">•</span> 
-            {new Date(lastUpdated).toLocaleTimeString([], optionsTime)}
+            {/* <span className="px-2">•</span> 
+            {new Date(lastUpdated).toLocaleTimeString([], optionsTime)} */}
         </time>
     )
 }
