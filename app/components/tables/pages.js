@@ -63,16 +63,17 @@ const PagesTable = (props) =>{
                 {allPages&&<>
                 {allPages.slice(startIndex, endIndex).map((page, index) => (
                     <li key={index} className="flex">
+                        {/* <pre>{JSON.stringify( page, null, 4)}</pre> */}
                         <a href={page.url} target="blank" className="underline">{page.page_name.substring(0, 50)}</a>
-                        <time>
+                        <time className="font-bold">
                             {new Date(page.last_updated).toLocaleDateString([])} 
                             {/* {new Date(page.last_updated).toLocaleTimeString([], optionsTime)} */}
                         </time>
                         <div>
                             <span className="block">
-                                {page.SiteType == 'Prod'&& <span>Production</span>}
+                                {page.SiteType == 'Prod'&&  <span>Production</span>}
                                 {page.SiteType == 'Stage'&& <span>Staging</span>}
-                                {page.SiteType == 'Dev'&& <span>Development</span>}
+                                {page.SiteType == 'Dev'&&   <span>Development</span>}
                                 {page.SiteType == 'Local'&& <span>Local</span>}
                             </span>
                             <small>Editor <b>{page.editor}</b></small>
@@ -86,7 +87,20 @@ const PagesTable = (props) =>{
                                         <>
                                             <span className="block w-full min-w-full">Production Modified</span>
                                             {page.allRestData.dataProd.modified&&
-                                                <time className="font-bold">
+                                                <time style={{ color: (new Date(page.last_updated)) > (new Date(page.allRestData.dataProd.modified)) ? 'red' : 'green' }}>
+
+                                                    { ( (new Date(page.last_updated)) > (new Date(page.allRestData.dataProd.modified)) ) && 
+                                                        <small style={{ color:'red'}}>
+                                                            Behind:&nbsp;
+                                                        </small>
+                                                    }
+
+                                                    { ( (new Date(page.last_updated)) < (new Date(page.allRestData.dataProd.modified)) ) && 
+                                                        <small style={{ color:'green'}}>
+                                                            Ahead:&nbsp;
+                                                        </small>
+                                                    }
+
                                                     {new Date(page.allRestData.dataProd.modified).toLocaleDateString([])} 
                                                 </time>
                                             }
@@ -103,7 +117,18 @@ const PagesTable = (props) =>{
                                         <>
                                             <span className="block w-full min-w-full">Staging Modified</span>
                                             {page.allRestData.dataStage.modified&&
-                                                <time className="font-bold">
+                                                <time>
+                                                    { ( (new Date(page.last_updated)) > (new Date(page.allRestData.dataStage.modified)) ) && 
+                                                        <small style={{ color:'red'}}>
+                                                            Behind:&nbsp;
+                                                        </small>
+                                                    }
+
+                                                    { ( (new Date(page.last_updated)) < (new Date(page.allRestData.dataStage.modified)) ) && 
+                                                        <small style={{ color:'green'}}>
+                                                          Ahead:&nbsp;
+                                                        </small>
+                                                    }
                                                     {new Date(page.allRestData.dataStage.modified).toLocaleDateString([])} 
                                                 </time>
                                             }
@@ -120,7 +145,18 @@ const PagesTable = (props) =>{
                                         <>
                                             <span className="block w-full min-w-full">Development Modified</span>
                                             {page.allRestData.dataDev.modified&&
-                                                <time className="font-bold">
+                                                <time>
+                                                    { ( (new Date(page.last_updated)) > (new Date(page.allRestData.dataDev.modified)) ) && 
+                                                        <small style={{ color:'red'}}>
+                                                        Behind:&nbsp;
+                                                        </small>
+                                                    }<br/>
+
+                                                    { ( (new Date(page.last_updated)) < (new Date(page.allRestData.dataDev.modified)) ) && 
+                                                        <small style={{ color:'green'}}>
+                                                            Ahead:&nbsp;
+                                                        </small>
+                                                    }<br/>
                                                     {new Date(page.allRestData.dataDev.modified).toLocaleDateString([])} 
                                                 </time>
                                             }
