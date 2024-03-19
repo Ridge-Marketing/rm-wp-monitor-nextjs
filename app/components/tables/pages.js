@@ -65,7 +65,7 @@ const PagesTable = (props) =>{
                     <li key={index} className="flex">
                         {/* <pre>{JSON.stringify( page, null, 4)}</pre> */}
                         <a href={page.url} target="blank" className="underline">{page.page_name.substring(0, 50)}</a>
-                        <time className="font-bold">
+                        <time>
                             {new Date(page.last_updated).toLocaleDateString([])} 
                             {/* {new Date(page.last_updated).toLocaleTimeString([], optionsTime)} */}
                         </time>
@@ -87,7 +87,7 @@ const PagesTable = (props) =>{
                                         <>
                                             <span className="block w-full min-w-full">Production Modified</span>
                                             {page.allRestData.dataProd.modified&&
-                                                <time style={{ color: (new Date(page.last_updated)) > (new Date(page.allRestData.dataProd.modified)) ? 'red' : 'green' }}>
+                                                <time>
 
                                                     { ( (new Date(page.last_updated)) > (new Date(page.allRestData.dataProd.modified)) ) && 
                                                         <small style={{ color:'red'}}>
